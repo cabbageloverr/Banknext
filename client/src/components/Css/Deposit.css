@@ -1,0 +1,12 @@
+.container{
+    margin-top: 5rem;
+    align-items: center;
+}
+
+.accnumber, .amout{
+    font-size: 20px;
+}
+
+.depo-btn{
+    margin-top: 1rem;
+}

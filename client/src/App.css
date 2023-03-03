@@ -1,0 +1,8 @@
+body{
+    background-image : url(https://image.makewebeasy.net/makeweb/m_1920x0/m14BHwk4P/Home%2F05__BG.png?v=202012190947);
+     background-repeat : no-repeat; 
+     background-position-x: 50%; 
+     -webkit-background-size: cover; 
+     -moz-background-size: cover; -o-background-size: cover; 
+     background-size: cover;
+}
