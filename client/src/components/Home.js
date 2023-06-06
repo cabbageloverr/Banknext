@@ -4,10 +4,10 @@ import './Css/Home.css'
 
 
 function Home() {
-  const [ amount, setAmount] = useState("");
-  const [ fname, setFname] = useState("");
-  const [ lname, setLname] = useState("");
-  const accNum = localStorage.getItem( "accNum");
+  const [amount, setAmount] = useState("");
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const accNum = localStorage.getItem("accNum");
   useEffect(() => {
     const reqToken = async () => {
       if (localStorage.getItem('Token')) {
@@ -20,18 +20,18 @@ function Home() {
           },
           body: JSON.stringify({
             acc_num: accNum
-        }),
+          }),
           mode: "cors",
         })
-        .then((response) => {
-          console.log(response);
-          if (response.ok) {
+          .then((response) => {
+            console.log(response);
+            if (response.ok) {
               response.json().then(json => {
-                  console.log(json);
-                  setFname(json.first_name);
-                  setLname(json.last_name);
-                  setAmount(json.money);
-                  console.log("OKss");
+                console.log(json);
+                setFname(json.first_name);
+                setLname(json.last_name);
+                setAmount(json.money);
+                console.log("OKss");
               });
               console.log("OK");
             }
@@ -40,23 +40,23 @@ function Home() {
             }
           });
       }
-      else{
+      else {
         window.location.href = 'http://localhost:3000/'
       }
     }
     reqToken();
   }
-  ,[]);
+    , []);
 
   const logout = () => {
     localStorage.removeItem('Token');
     localStorage.removeItem('accNum');
     window.location.href = 'http://localhost:3000/'
-    
+
 
   }
-  
-  
+
+
   return (
     <div>
       <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
@@ -78,6 +78,9 @@ function Home() {
             <li class="nav-item">
               <a class="nav-link" href="/transfer">Transfer</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/transaction">Transaction</a>
+            </li>
             <li class="nav-item logout">
               <a class="nav-link" onClickCapture={logout}>log out</a>
             </li>
@@ -85,9 +88,9 @@ function Home() {
         </div>
       </nav>
       <div class="container d-flex justify-content-center">
-        <h1 className='welcome-text'>Welcome <span class="name">{fname} {lname} </span>to <span class="clicknext">Banknext </span>banking application</h1>
+        <h1 className='welcome-text'>🙏 Welcome <span class="animate"> {fname} {lname} </span> to <span class="animate">Banknext </span> banking application 🏦</h1>
       </div>
-      <h1 className="amount">Your amount <span class="amount-num">{ amount } ฿</span></h1>
+      <h1 className="amount">Your current balance is<span class="amount-num"> {amount} </span>฿</h1>
     </div>
   )
 }

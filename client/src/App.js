@@ -5,6 +5,7 @@ import Deposit from './components/Deposit';
 import { Routes, Route } from 'react-router-dom';
 import Withdraw from './components/Withdraw';
 import Transfer from './components/Transfer';
+import Transaction from './components/Transaction';
 import './App.css';
 
 
@@ -18,6 +19,7 @@ function App() {
       <Route path="/deposit" element={<Deposit/>}/>
       <Route path="/withdraw" element={<Withdraw/>}/>
       <Route path="/transfer" element={<Transfer/>}/>
+      <Route path="/transaction" element={<Transaction/>}/>
     </Routes>
     </div>
     </>
